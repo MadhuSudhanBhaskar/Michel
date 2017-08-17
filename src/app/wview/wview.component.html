@@ -1,0 +1,48 @@
+<div *ngIf="status">
+  <section class="parentContainer">
+  <div *ngFor="let wdata of wZdata;let i = index" class="secondaryContainer">
+    <div >{{wdata.money }}</div>
+    <div>{{wdata.title}}</div>
+    <div>
+      <label>
+        <input name="options" (click)="test(wdata.id)"
+                       [checked]="wdata.id === model.id"
+                       type="radio" required>Option {{i+1}}
+      </label>
+    </div>
+  </div>
+  </section>
+</div>
+<div *ngIf="!status">
+  <section class="stepContainer" style="display: flex;">
+    <div style="display: flex;flex-direction: column;">
+    <div *ngFor="let wdata of wZdata;let i = index" style="background:#ccc;display: flex;border:1px solid black;border-radius: 2%;align-items: center;margin: 1%;padding: 3%;">
+      <div style="width: 25%;border-radius: 1%;min-height: 4rem;">
+        <label>
+          <input name="options" (click)="checkedStatus(wdata.id,$event)"
+                 [checked]="wdata.id === model.id"
+                 type="checkbox" [value]="wdata.id" required>Option {{i+1}}
+        </label>
+        <img style="width: 60%;" src="{{wdata.imgPath }}"/>
+      </div>
+      <section>
+        <div>{{wdata.title }}</div>
+        <div>
+          <ul style="margin-bottom: 0;list-style: none;padding: 0">
+            <li *ngFor="let wmoreD of wdata.moreData | slice ">{{wmoreD}}</li>
+          </ul>
+        </div>
+        <div>{{wdata.secondaryTitle }}</div>
+      </section>
+    </div>
+    </div>
+    <div class="secondaryDataView">
+      <div class="parentContainerstyle">
+        <div *ngFor="let wdata of wZdata;let i = index" class="secondaryNewContainer">
+          <div >{{wdata.money }}</div>
+          <div>{{wdata.title}}</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

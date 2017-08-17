@@ -1,0 +1,34 @@
+.demo {
+    padding: 50px 0px;
+}
+.selectedSection {
+  width: 50%;
+  background: #ccc;
+  padding: 3%;
+  border-radius: 1%
+}
+.selectedData {
+  width: 40%;
+  display: inline-block
+}
+.calculateData {
+  width: 40%;
+}
+.monthRevenue {
+  background: black;
+  padding: 3%;
+  border-radius: 1%;
+  margin-left:1rem;
+  text-align: center;
+  color: #fff
+}
+.financeRevenue {
+  background: green;
+  padding: 3%;
+  border-radius: 1%;
+  margin-left:1rem;
+  text-align: center;
+  color: #fff;
+  margin-top:0.3rem;
+}
+

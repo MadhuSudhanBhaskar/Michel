@@ -1,0 +1,92 @@
+<div class="container">
+  <section class="demo">
+    <div style="height: 500px;">
+    <form-wizard (onStepChanged)="onStepChanged($event)">
+      <wizard-step [title]="'Step1'" [isValid]="emailForm.form.valid" (onNext)="onStep1Next($event)">
+        <form #emailForm="ngForm">
+            <app-wview [wZdata]='name' (change)="firstStep($event)" [status]='true'></app-wview>
+        </form>
+      </wizard-step>
+      <wizard-step [title]="'Step2'" [showNext]="step2.showNext" [showPrev]="step2.showPrev" (onNext)="onStep2Next($event)">
+
+        <form>
+          <app-wview [wZdata]='stepData' (change)="secondStep($event)" [status]='true'></app-wview>
+        </form>
+      </wizard-step>
+      <wizard-step [title]="'Step3'" [isValid]="inValid"  (onNext)="onStep3Next($event)">
+        <form>
+            <app-wview [wZdata]='setpData2' [wZdataMore]='stepDatamore' (change)="thirdStep($event)" [status]='false'></app-wview>
+        </form>
+      </wizard-step>
+     <wizard-step [title]="'Step4'">
+        <div [ngSwitch]="isCompleted">
+          <section style="display:flex">
+            <div class="selectedSection">
+              <h3>
+                Door deze selectie bedragen de
+                kosten van dit gedeeltelijke
+                basisinkomen:
+                Totaal: 64,8 miljard € ( per jaar)
+              </h3>
+              <div>
+                <ul>
+                  <li><div class="selectedData">3,5 miljoen kinderen:</div> <span>0 miljard € ( per jaar)</span></li>
+                  <li><div class="selectedData">13,5 miljoen volwassenen</div> <span>64,8 miljard € ( per jaar)</span></li>
+                  <li><div class="selectedData">Woontoeslagen:</div> <span>0 miljard € ( per jaar)</span></li>
+                </ul>
+              </div>
+              <div>
+                <ul>
+                  <li><div class="selectedData">Totaal:</div> 64,8 miljard € ( per jaar)</li>
+                  <li>( dit is 9 % van wat we met zijn allen ieder jaar verdienen in
+                    NL, dus 91 % wordt dan op een andere manier verdeeld (
+                    loon, winst, huur, etc)</li>
+
+                </ul>
+              </div>
+            </div>
+            <div class="calculateData">
+              <div style="display: flex;flex-direction: column;">
+                <div class="monthRevenue">
+                  <p> Revenue de base choise</p>
+                  <h4>750 Eur /Mois</h4>
+                </div>
+                <div class="financeRevenue">
+                  <p> Deficit ou excedent financers selon vos options</p>
+                  <h4>+0 MDEur</h4>
+                </div>
+            </div>
+              </div>
+          </section>
+
+          <section class="tableData" style="display: flex;">
+            <div *ngFor="let tdata of tmoreData" style="width: 18%;margin:1% 3px 0 0;background: darkgrey;padding: 1%;">
+              {{tdata.title}}
+            </div>
+          </section>
+          <section class="tableData1" style="display: flex;">
+            <div *ngFor="let tdata of tmoreData" style="width: 18%;margin:3px 3px 0 0;background: #ccc;padding: 1%;">
+              {{tdata.title}}
+            </div>
+          </section>
+          <section class="tableData2" style="display: flex;">
+            <div *ngFor="let tdata of tmoreData" style="width: 18%;margin:1px 3px 0 0;background: #ccc;padding: 1%;">
+              {{tdata.title}}
+            </div>
+          </section>
+          <section class="tableData3" style="display: flex;">
+            <div *ngFor="let tdata of tmoreData" style="width: 18%;margin:1px 3px 0 0;background: #ccc;padding: 1%;">
+              {{tdata.title}}
+            </div>
+          </section>
+          <section class="tableData4" style="display: flex;">
+            <div *ngFor="let tdata of tmoreData" style="width: 18%;margin:1px 3px 0 0;background: #ccc;padding: 1%;">
+              {{tdata.title}}
+            </div>
+          </section>
+        </div>
+      </wizard-step>
+    </form-wizard>
+    </div>
+  </section>
+</div>
