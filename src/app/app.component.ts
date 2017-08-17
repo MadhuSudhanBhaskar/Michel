@@ -13,6 +13,7 @@ export class AppComponent implements  OnInit{
   private stepDatamore: Object = {};
   private tmoreData: Object = {};
   private inValid:boolean = false;
+  testdata:String = '';
   step2: any = {
     showNext: true,
     showPrev: true
@@ -32,19 +33,20 @@ export class AppComponent implements  OnInit{
 
   onStep1Next(event) {
     console.log('Step1 - Next');
-    console.log(this.dataa)
   }
 
   onStep2Next(event) {
     console.log('Step2 - Next');
-    console.log(data)
   }
 
   onStep3Next(event) {
 
     console.log('Step3 - Next');
-    console.log(event);
     console.log(this.dataa)
+    var footer = document.querySelectorAll('div.card-footer button');
+    footer[2].setAttribute("style", "display: none;");
+    //This way we can access data and assign it to the view after calculation 
+    this.testdata = this.dataa.firstStep+'Testing here';
   }
 
   onComplete(event) {
@@ -72,12 +74,8 @@ export class AppComponent implements  OnInit{
   secondStep(event) {
     console.log('secondStep')
     this.dataa.secondStep = event;
-    console.log(this.dataa)
   }
   thirdStep(event) {
-    console.log('in main')
-    console.log(this.dataa);
-    console.log(event)
     if(event.length === 0) {
       this.inValid = false;
       var x = document.getElementsByClassName("nav-item");
@@ -90,6 +88,5 @@ export class AppComponent implements  OnInit{
       x[3].classList.remove("disabled");
     }
     this.dataa.thirdStep = event;
-    console.log(this.dataa);
   }
 }
